@@ -1,4 +1,4 @@
-const pacote = require('../../lib/pacote-forca/index');
+const pacote = require('../lib/hangman-package-poo/index');
 
 const skins = require('./skinForca.json');
 

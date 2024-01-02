@@ -1,14 +1,18 @@
 const prompt = require('prompt-sync') ({sigint: false});
 const Menu = require('./menu');
 
+const ClassVida = require('./vida');
+const vida = new ClassVida();
+
 class MenuConfig extends Menu {
   runMenu() {
     console.log(
     '\n'+
-    'Menu Inicial\n'+
+    'Configurações\n'+
     '-----------------\n'+
-    '1- Jogar\n'+
-    '2- Configurações\n'+
+    '1- Alterar Forca\n'+
+    '2- Alterar os Ícone de Vida\n'+
+    `3- ${vida.getHabilitado() ? 'Desabilitar' : 'Habilitar'} os Ícones de Vida\n`+
     '0- Sair\n'
     );
     let opt = parseInt(prompt('>> '));
@@ -19,11 +23,14 @@ class MenuConfig extends Menu {
         return;
 
       case 1:
-        menuJogar.runMenu();
         break;
 
       case 2:
-        menuConfig.runMenu();
+        break;
+
+      case 3:
+        vida.toggleHabilitado();
+        console.log(vida.getHabilitado());
         break;
 
       default:
