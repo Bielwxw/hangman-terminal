@@ -1,12 +1,7 @@
 const prompt = require('prompt-sync') ({sigint: false});
-
 const Menu = require('./menu');
 
-const ClassMenuJogar = require('./menuJogar');
-const ClassMenuConfig = require('./menuConfig');
-
-const menuJogar = new ClassMenuJogar();
-const menuConfig = new ClassMenuConfig();
+const { menuJogar, menuConfig } = require('./packageConfig');
 
 class MenuInicial extends Menu {
   runMenu() {
