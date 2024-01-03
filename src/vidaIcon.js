@@ -1,4 +1,4 @@
-class Vida {
+class VidaIcon {
   constructor(icone_vida = 'O', icone_vida_perdida = 'X') {
     this._habilitado = true;
     this._iconeVida = icone_vida;
@@ -25,4 +25,4 @@ class Vida {
   }
 }
 
-module.exports = Vida;
+module.exports = VidaIcon;
