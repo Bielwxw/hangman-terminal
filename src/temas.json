@@ -1,0 +1,55 @@
+{
+  "animal": {
+    "nome": "Animal",
+    "palavras": [
+      "Elefante", "Jacaré", "Pinguim", "Borboleta",
+      "Girafa", "Leopardo", "Rinoceronte", "Canguru",
+      "Tucano", "Sapo"
+    ]
+  },
+
+  "filme": {
+    "nome": "Filme",
+    "palavras": [
+      "Matrix", "Titanic", "Jurassic Park", "O Poderoso Chefão",
+      "Avatar", "Pulp Fiction", "Star Wars", "Forrest Gump",
+      "Interestelar", "Gladiador"
+    ]
+  },
+
+  "serie": {
+    "nome": "Série",
+    "palavras": [
+      "Breaking Bad", "Stranger Things", "Game of Thrones", "Friends",
+      "Black Mirror", "The Mandalorian", "Os Simpsons", "The Office",
+      "La Casa de Papel", "Avatar a Lenda de Aang"
+    ]
+  },
+
+  "fruta": {
+    "nome": "Fruta",
+    "palavras": [
+      "Maçã", "Abacaxi", "Banana", "Morango",
+      "Kiwi", "Pêssego", "Uva", "Melancia",
+      "Manga", "Pera"
+    ]
+  },
+
+  "pais": {
+    "nome": "País",
+    "palavras": [
+      "Brasil", "Japão", "Canadá", "Austrália",
+      "Rússia", "Índia", "Itália", "França",
+      "México", "Alemanha"
+    ]
+  },
+
+  "esporte": {
+    "nome": "Esporte",
+    "palavras": [
+      "Futebol", "Tênis", "Natação", "Basquete",
+      "Vôlei", "Atletismo", "Golfe", "Ciclismo",
+      "Boxe", "Esqui"
+    ]
+  }
+}
