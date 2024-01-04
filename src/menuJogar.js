@@ -2,7 +2,6 @@ const prompt = require('prompt-sync')({ sigint: false });
 const Menu = require('./menu');
 
 const { Tema } = require('../lib/hangman-package-poo/index');
-const { palavra } = require('./config/index');
 
 const ClassJogo = require('./jogo');
 const jogo = new ClassJogo();
