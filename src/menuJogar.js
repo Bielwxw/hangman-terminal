@@ -1,37 +1,46 @@
-const prompt = require('prompt-sync') ({sigint: false});
+const prompt = require('prompt-sync')({ sigint: false });
 const Menu = require('./menu');
+
+const { Tema } = require('../lib/hangman-package-poo/index');
+const { palavra } = require('./config/index');
 
 const ClassJogo = require('./jogo');
 const jogo = new ClassJogo();
 
 class MenuJogar extends Menu {
-  runMenu() {
-    console.log(
-    '\n'+
-    'Temas:\n'+
-    '-----------------\n'+
-    '1- Tema 1\n'+
-    '2- Tema 2\n'+
-    '0- Voltar'
-    );
+  runMenu(msg) {
+    let optTemas = "";
+    Tema.getAllTemas().forEach((tema, index) => {
+      optTemas += `${index + 1}- ${tema}\n`;
+    });
+
+    this.options(optTemas, msg);
     let opt = parseInt(prompt('>> '));
 
-    switch(opt) {
-      case 0:
-        return;
+    msg = "";
+    if (opt === 0) return;
 
-      case 1:
-        jogo.run(1);
-        break;
+    const temaSelected = Tema.selectTema(opt - 1);
 
-      case 2:
-        jogo.run(2);
-        break;
+    if (temaSelected === undefined) {
+      msg = 'Opção Inválida!!!';
+      this.runMenu(msg);
+    }
+    else {
+      jogo.run(temaSelected);
+    }
+  }
 
-      default:
-        console.log('Opção Inválida!');
-      }
-      this.runMenu();
+  options(optTemas, warning) {
+    console.clear();
+    console.log(
+      '\n' +
+      'Temas\n' +
+      '-----------------\n' +
+      optTemas +
+      '\n0- Voltar\n'+
+      `${warning ? `\n${warning}\n` : ""}`
+    );
   }
 }
 

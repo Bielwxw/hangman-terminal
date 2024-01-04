@@ -1,9 +1,9 @@
 const prompt = require('prompt-sync') ({sigint: false});
 const Menu = require('./menu');
 
-const { vidaIcon } = require('./packageConfig');
+const { vidaIcon } = require('./config');
 
-class MenuConfig extends Menu {
+class MenuConfiguracao extends Menu {
   runMenu() {
     console.log(
     '\n'+
@@ -42,4 +42,4 @@ class MenuConfig extends Menu {
   }
 }
 
-module.exports = MenuConfig;
+module.exports = MenuConfiguracao;
