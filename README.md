@@ -5,13 +5,17 @@ Projeto de POO realizado para o aperfeiçoamento dos conhecimentos diciplinares 
 ![Logo do JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
 <img src="https://www2.ifal.edu.br/acesso-a-sistemas/logo2.png/@@images/image.png" alt="Logo do Ifal" style="width:auto; height:28px;"/>
 
+
+
 ## Sites
 
 - [**Pacote do Projeto**](https://github.com/IanSantosOS/hangman-package-poo)
 
-- [**Jogo rodando no Terminal**](https://github.com/IanSantosOS/hangman-terminal)
+- [**Projeto no Terminal**](https://github.com/IanSantosOS/hangman-terminal)
 
-- [**Jogo rodando num Site**](https://github.com/IanSantosOS/hangman-website)
+- [**Projeto no Site**](https://github.com/IanSantosOS/hangman-website)
+
+
 
 ## Colaboradores 🤝🏽
 <img align="right" height="150px" src="https://media4.giphy.com/media/v1.Y2lk PTc5MGI3NjExd2VycTI3dzRyOWgxd2FvdzRlaHZyb2tpemU1ZHZnaDd0NWdscTBzNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/utfeiHQ7CcpyRtXla6/giphy.gif">
@@ -22,14 +26,28 @@ Projeto de POO realizado para o aperfeiçoamento dos conhecimentos diciplinares 
 | Aluno | Ian dos Santos | Café |
 | Aluno | Gabriel Rodrigues | Ghost |
 
+
+
 ## Mapa Conceitual e Exemplo Prático 🖼️
 
 ![Mapa conceitual do Projeto](./mapa-conceitual.png)
 
+
+
 ## Referência 📌
 
-### Boneco
+### Inpiração na criação do design da forca
 https://gist.github.com/chrishorton/8510732aa9a80a03c829b09f12e20d9c
+
+### console.clear();
+https://www.w3schools.com/jsref/met_console_clear.asp
+
+### Cor no terminal do Node.js
+https://horadecodar.com.br/como-mudar-a-cor-do-console-no-terminal-em-node-js/
+
+https://www.npmjs.com/package/colors
+
+
 
 <div align="center">
 
