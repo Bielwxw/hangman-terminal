@@ -38,7 +38,7 @@
       "Vikings", "The Umbrella Academy", "The Flash", "Friends", "The Chosen",
       "Cobra Kai", "O Incrível Mundo de Gumball", "The Good Doctor", "Moon Knight",
       "Peaky Blinders", "Grey's Anatomy", "The Boys", "Brooklyn Nine-Nine",
-      "The Good Place", "WandaVision"
+      "The Good Place", "WandaVision", "Todo Mundo Odeia o Chris"
     ]
   },
 
@@ -58,18 +58,39 @@
   "pais": {
     "nome": "País",
     "palavras": [
-      "Brasil", "Japão", "Canadá", "Austrália",
-      "Rússia", "Índia", "Itália", "França",
-      "México", "Alemanha"
+      "Brasil", "Japão", "Canadá", "Austrália", "Estados Unidos",
+      "Rússia", "Índia", "Itália", "França", "China", "Argentina",
+      "México", "Alemanha", "Reino Unido", "Espanha", "Coreia do Sul",
+      "África do Sul", "Suécia", "Turquia", "Egito", "Colômbia", "Noruega",
+      "Tailândia", "Peru", "Portugal", "Grécia", "Nova Zelândia", "Holanda",
+      "Dinamarca", "Irlanda", "Coreia do Norte", "Bélgica", "Irã", "Angola", "Equador"
     ]
   },
 
   "esporte": {
     "nome": "Esporte",
     "palavras": [
-      "Futebol", "Tênis", "Natação", "Basquete",
-      "Vôlei", "Atletismo", "Golfe", "Ciclismo",
-      "Boxe", "Esqui"
+      "Boxe", "Esqui", "Rugby", "Hóquei no Gelo", "Surfe",
+      "Futebol", "Tênis", "Natação", "Basquete", "Handebol",
+      "Vôlei", "Atletismo", "Golfe", "Ciclismo", "Tênis de Mesa",
+      "Automobilismo", "Softbol", "Polo Aquático", "Snowboard",
+      "Escalada", "Curling", "Arco e Flecha", "Salto Ornamental",
+      "Levantamento de Peso", "Triatlo", "Boliche", "Esgrima",
+      "Badminton", "Skate", "MMA", "Patinação Artística",
+      "Karatê", "Handebol de Praia", "Cricket", "Polo"
+    ]
+  },
+
+  "informatica": {
+    "nomea": "Informática",
+    "palavras": [
+      "Programação Orientada a Objeto", "Javascript", "Python",
+      "Java", "Banco de Dados", "Servidor", "HTML", "Excel", "Word",
+      "Frontend", "Sistema Operacional", "Backend", "API", "Git", "Github",
+      "Rede", "Internet", "Computador", "Programação", "Algoritmo", "Firewall",
+      "Interface", "Aplicativo", "Backup", "Antivírus", "Wifi", "Compilação",
+      "Linguagem de Programação", "Bit", "Nuvem", "Criptografia", "Hardware",
+      "Software", "Malware", "Bluetooth"
     ]
   }
 }
