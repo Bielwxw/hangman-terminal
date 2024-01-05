@@ -23,7 +23,7 @@ class MenuJogar extends Menu {
 
     if (temaSelected === undefined) {
       msg = 'Opção Inválida!!!'.error;
-      this.runMenu(msg);
+      await this.runMenu(msg);
     }
     else {
       await jogo.run(temaSelected);
