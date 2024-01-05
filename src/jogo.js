@@ -1,14 +1,17 @@
-const prompt = require('prompt-sync') ({sigint: false});
+const prompt = require('prompt-sync')({ sigint: false });
 
 const { jogador, forca, vidaIcon } = require('./config/index');
 
-const {Palavra} = require('../lib/hangman-package-poo/index');
+const { Palavra } = require('../lib/hangman-package-poo/index');
 const palavra = new Palavra();
 
+const ClassFimDeJogo = require('./fimDeJogo');
+const fimDeJogo = new ClassFimDeJogo();
 class Jogo {
   constructor() {
     this._letras = [];
     this._vidaPadrao = 6;
+    this._niveisDePontuacao = [40, 35, 30, 15, 10, 5, 0];
   }
 
   getLetras() {
@@ -27,52 +30,101 @@ class Jogo {
     return this._vidaPadrao;
   }
 
-  run(tema) {
+  getNiveisDePontuacao() {
+    return this._niveisDePontuacao;
+  }
+
+  verificarLetraRepetida(letra) {
+    letra = letra.toUpperCase();
+
+    if (this.getLetras().includes(letra))
+      return true;
+    else
+      return false;
+  }
+
+  reset() {
+    this.setLetras([]);
+    forca.setEstado(0);
+  }
+
+  async run(tema) {
     jogador.setVida(6);
     palavra.novaPalavra(tema);
 
-    while(jogador.getVida() > 0) {
-      this.print();
-      let letra = prompt('>> ');
+    let text = "";
+
+    while (jogador.getVida() > 0) {
+      this.print(text);
+      let letra = prompt('>> '.dim).trim()[0] ?? "";
+
+      text = "";
+
+      if (letra === "") {
+        text = "Escreva uma Letra!".error;
+        continue;
+      }
+
+      const value = this.verificarLetraRepetida(letra);
+      if (value) {
+        text = "Não Aceitamos Letras Repetidas!".error;
+        continue;
+      }
 
       if (palavra.verificarLetra(letra)) {
         palavra.addLetra(letra);
+        const p = this.getNiveisDePontuacao()[forca.getEstado()];
+        jogador.addPontuacao(p);
       }
       else {
         const dano = jogador.getVida() - 1;
         jogador.setVida(dano);
         forca.setEstado(this.getVidaPadrao() - jogador.getVida());
       }
+      this.addLetra(letra.toUpperCase());
+
+      if (palavra.verificarPalavra()) {
+        await fimDeJogo.ganhou();
+        this.reset();
+        break;
+      }
+      if (jogador.getVida() <= 0) {
+        await fimDeJogo.perdeu();
+        jogador.setPontuacao(0);
+        this.reset();
+        break;
+      }
     }
   }
 
-  print() {
-    let vidaStr = "";
+  print(texto) {
+    let vidaStr;
+
     if (vidaIcon.getHabilitado()) {
+      vidaStr = "";
       const vidaPerdida = this.getVidaPadrao() - jogador.getVida();
+
       for (let i = 0; i < vidaPerdida; i++) {
         vidaStr += vidaIcon.getIconVidaPerdida() + " ";
       }
+
       for (let i = 0; i < jogador.getVida(); i++) {
         vidaStr += vidaIcon.getIconVida() + " ";
       }
+      vidaStr += "\n";
     }
-    vidaStr += "\n";
 
     console.clear();
     console.log(
       "\n" +
-      `Letras: ${this.getLetras()}\n` +
+      `Letras: ${this.getLetras().join(', ')}\n` +
       `Pontuação: ${jogador.getPontuacao()}\n` +
       `${forca.getSkinAtual()}\n` +
-      `${vidaStr}\n` +
-      `Tema: ${palavra.getTema()}\n`+
-      `Texto: ${palavra.getPosicao().join(' ')}\n`
+      `${vidaStr ? vidaStr : ""}\n` +
+      `Tema: ${palavra.getTema()}\n` +
+      `Texto: ${palavra.getPosicao().join(' ')}\n` +
+      `${texto ? texto : ""}`
     );
-  }
-
-  printPerdeu() {
-
   }
 }
 
