@@ -1,6 +1,6 @@
-require('./src/config/index');
-
 const colors = require('colors');
+
+require('./src/config/index');
 
 colors.setTheme({
   voltar: 'yellow',
