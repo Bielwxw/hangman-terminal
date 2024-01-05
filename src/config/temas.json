@@ -82,7 +82,7 @@
   },
 
   "informatica": {
-    "nomea": "Informática",
+    "nome": "Informática",
     "palavras": [
       "Programação Orientada a Objeto", "Javascript", "Python",
       "Java", "Banco de Dados", "Servidor", "HTML", "Excel", "Word",
