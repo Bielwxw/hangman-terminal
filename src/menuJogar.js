@@ -7,14 +7,14 @@ const ClassJogo = require('./jogo');
 const jogo = new ClassJogo();
 
 class MenuJogar extends Menu {
-  runMenu(msg) {
+  async runMenu(msg) {
     let optTemas = "";
     Tema.getAllTemas().forEach((tema, index) => {
-      optTemas += `${index + 1}- ${tema}\n`;
+      optTemas += `${index + 1}. ${tema}\n`;
     });
 
     this.options(optTemas, msg);
-    let opt = parseInt(prompt('>> '));
+    let opt = parseInt(prompt('>> '.dim));
 
     msg = "";
     if (opt === 0) return;
@@ -22,11 +22,11 @@ class MenuJogar extends Menu {
     const temaSelected = Tema.selectTema(opt - 1);
 
     if (temaSelected === undefined) {
-      msg = 'Opção Inválida!!!';
+      msg = 'Opção Inválida!!!'.error;
       this.runMenu(msg);
     }
     else {
-      jogo.run(temaSelected);
+      await jogo.run(temaSelected);
     }
   }
 
@@ -34,10 +34,11 @@ class MenuJogar extends Menu {
     console.clear();
     console.log(
       '\n' +
-      'Temas\n' +
-      '-----------------\n' +
+      'Temas\n'.menuGreen +
+      '-----------------\n'.menuGreen +
       optTemas +
-      '\n0- Voltar\n'+
+      '-----------------\n'.menuGreen +
+      '0. Voltar\n'.voltar +
       `${warning ? `\n${warning}\n` : ""}`
     );
   }

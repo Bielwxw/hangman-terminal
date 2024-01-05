@@ -1,4 +1,4 @@
-const prompt = require('prompt-sync') ({sigint: false});
+const prompt = require('prompt-sync')({ sigint: false });
 const Menu = require('./menu');
 
 const ClassMenuJogar = require('./menuJogar');
@@ -10,20 +10,20 @@ const menuConfig = new ClassMenuConfig();
 const { jogador } = require('./config/index');
 
 class MenuInicial extends Menu {
-  runMenu(msg) {
+  async runMenu(msg) {
     this.options(msg);
-    let opt = parseInt(prompt('>> '));
+    let opt = parseInt(prompt('>> '.dim));
 
     msg = "";
 
-    switch(opt) {
+    switch (opt) {
       case 0:
-        msg = 'Saindo do Sistema...';
+        msg = 'Saindo do Sistema...'.dim;
         this.options(msg);
         return;
 
       case 1:
-        menuJogar.runMenu();
+        await menuJogar.runMenu();
         break;
 
       case 2:
@@ -31,22 +31,33 @@ class MenuInicial extends Menu {
         break;
 
       default:
-        msg = "Opção Inválida!!!";
+        msg = "Opção Inválida!!!".error;
     }
     this.runMenu(msg);
   }
 
   options(warning) {
+    let txtPontuacao = "";
+    if (jogador.getMaiorPontuacao() === jogador.getPontuacao() && jogador.getPontuacao() > 0) {
+      txtPontuacao = 'Pontuação Atual: '.menuBlue + `${jogador.getMaiorPontuacao()}`.yellow;
+    }
+    else if (jogador.getMaiorPontuacao() >= jogador.getPontuacao()) {
+      txtPontuacao = 'Maior Pontuação: '.menuBlue + `${jogador.getMaiorPontuacao()}`.yellow;
+      if (jogador.getPontuacao() > 0) {
+        txtPontuacao += '\nPontuação Atual: '.menuBlue + `${jogador.getPontuacao()}`.green
+      }
+    }
+
     console.clear();
     console.log(
-      '\n'+
-      'Menu Inicial\n'+
-      '-----------------------\n'+
-      '1- Jogar\n'+
-      '2- Configurações\n'+
-      '0- Sair\n'+
-      '-----------------------\n'+
-      `Maior Pontuação: ${jogador.getMaiorPontuacao()}\n`+
+      '\n' +
+      'Menu Inicial\n'.menuBlue +
+      '-----------------------\n'.menuBlue +
+      '1. Jogar\n' +
+      '2. Configurações\n' +
+      '0. Sair\n' +
+      '-----------------------\n'.menuBlue +
+      `${txtPontuacao}\n` +
       `${warning ? `\n${warning}\n` : ""}`
     );
   }
