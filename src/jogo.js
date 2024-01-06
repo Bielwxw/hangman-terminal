@@ -114,11 +114,11 @@ class Jogo {
       const vidaPerdida = this.getVidaPadrao() - jogador.getVida();
 
       for (let i = 0; i < vidaPerdida; i++) {
-        vidaStr += vidaIcon.getIconVidaPerdida() + " ";
+        vidaStr += vidaIcon.getIconVidaPerdida().vidaPerdida + " ";
       }
 
       for (let i = 0; i < jogador.getVida(); i++) {
-        vidaStr += vidaIcon.getIconVida() + " ";
+        vidaStr += vidaIcon.getIconVida().vida + " ";
       }
       vidaStr += "\n";
     }

@@ -1,14 +1,16 @@
 const colors = require('colors');
 
-require('./src/config/index');
-
 colors.setTheme({
   voltar: 'yellow',
+  error: ['red', 'bold'],
   menuBlue: ['blue', 'bold'],
   menuGreen: ['green', 'bold'],
   menuMagenta: ['magenta', 'bold'],
-  error: ['red', 'bold']
+  vidaPerdida: 'red',
+  vida: 'green'
 });
+
+require('./src/config/index');
 
 const MenuInicial = require('./src/menuInicial');
 const menu = new MenuInicial();
