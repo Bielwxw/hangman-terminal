@@ -34,8 +34,7 @@ class MenuConfiguracao extends Menu {
   }
 
   options(warning) {
-    const text = vidaIcon.getHabilitado() ? 'Desabilitar' : 'Habilitar';
-    text.yellow
+    const vidaText = vidaIcon.getHabilitado() ? 'Desabilitar' : 'Habilitar';
 
     console.clear();
     console.log(
@@ -45,7 +44,7 @@ class MenuConfiguracao extends Menu {
       '1. Alterar Forca\n' +
       '2. Alterar os Ícone de Vida\n' +
       '3. Adicionar Palavra\n' +
-      `4. ${text} os Ícones de Vida\n` +
+      `4. ${vidaText} os Ícones de Vida\n` +
       '-----------------------------------\n'.menuMagenta +
       '0. Voltar\n'.voltar +
       `${warning ? `\n${warning}\n` : ""}`
