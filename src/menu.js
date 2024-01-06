@@ -6,9 +6,9 @@ class Menu {
     let opt = parseInt(prompt('>> '));
 
     switch (opt) {
+      case 0: return;
       case 1: break;
       case 2: break;
-      case 0: return;
       default:
         msg = '\nOpção Inválida!!!'.error;;
     }

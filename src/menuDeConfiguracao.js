@@ -1,6 +1,9 @@
 const prompt = require('prompt-sync')({ sigint: false });
 const Menu = require('./menu');
 
+const ClassMenuAlterarIconVida = require('./menuAlterarIconVida');
+const menuAlterVida = new ClassMenuAlterarIconVida();
+
 const { vidaIcon } = require('./config/');
 
 class MenuConfiguracao extends Menu {
@@ -18,12 +21,10 @@ class MenuConfiguracao extends Menu {
         break;
 
       case 2:
+        menuAlterVida.runMenu();
         break;
 
       case 3:
-        break;
-
-      case 4:
         vidaIcon.toggleHabilitado();
         break;
 
@@ -42,9 +43,8 @@ class MenuConfiguracao extends Menu {
       'Configurações\n'.menuMagenta +
       '-----------------------------------\n'.menuMagenta +
       '1. Alterar Forca\n' +
-      '2. Alterar os Ícone de Vida\n' +
-      '3. Adicionar Palavra\n' +
-      `4. ${vidaText} os Ícones de Vida\n` +
+      '2. Alterar os Ícones de Vida\n' +
+      `3. ${vidaText} os Ícones de Vida\n` +
       '-----------------------------------\n'.menuMagenta +
       '0. Voltar\n'.voltar +
       `${warning ? `\n${warning}\n` : ""}`
