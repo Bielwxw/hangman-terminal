@@ -35,8 +35,6 @@ class Jogo {
   }
 
   verificarLetraRepetida(letra) {
-    letra = letra.toUpperCase();
-
     if (this.getLetras().includes(letra))
       return true;
     else
@@ -56,18 +54,20 @@ class Jogo {
 
     while (jogador.getVida() > 0) {
       this.print(text);
-      let letra = prompt('>> '.dim).trim()[0] ?? "";
+      let letra = prompt('>> '.dim).trim().toUpperCase()[0] ?? "";
 
       text = "";
 
-      if (letra === "") {
-        text = "Escreva uma Letra!".error;
+      if (letra === "") continue;
+
+      if (letra === "-") {
+        text = "Hífens já são Colocados Automaticamente!".error;
         continue;
       }
 
       const value = this.verificarLetraRepetida(letra);
       if (value) {
-        text = "Não Aceitamos Letras Repetidas!".error;
+        text = "A Letra ".error + `{${letra}}`.green + " já foi Utilizada!".error;
         continue;
       }
 
@@ -81,7 +81,8 @@ class Jogo {
         jogador.setVida(dano);
         forca.setEstado(this.getVidaPadrao() - jogador.getVida());
       }
-      this.addLetra(letra.toUpperCase());
+
+      this.addLetra(letra);
 
       if (palavra.verificarPalavra()) {
         await fimDeJogo.ganhou();
@@ -119,11 +120,11 @@ class Jogo {
       "\n" +
       `Letras: ${this.getLetras().join(', ')}\n` +
       `Pontuação: ${jogador.getPontuacao()}\n` +
-      `${forca.getSkinAtual()}\n` +
+      `\n${forca.getSkinAtual()}\n` +
       `${vidaStr ? vidaStr : ""}\n` +
       `Tema: ${palavra.getTema()}\n` +
       `Texto: ${palavra.getPosicao().join(' ')}\n` +
-      `${texto ? texto : ""}`
+      `${texto ? "\n"+texto : ""}`
     );
   }
 }
