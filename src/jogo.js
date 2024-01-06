@@ -126,12 +126,12 @@ class Jogo {
     console.clear();
     console.log(
       "\n" +
-      `Letras: ${this.getLetras().join(', ')}\n` +
-      `Pontuação: ${jogador.getPontuacao()}\n` +
+      'Letras: '.menuBlue + `${this.getLetras().join(', ')}\n` +
+      'Pontuação: '.menuGreen + `${jogador.getPontuacao().toString().yellow}\n` +
       `\n${forca.getSkinAtual()}\n` +
       `${vidaStr ? vidaStr : ""}\n` +
-      `Tema: ${palavra.getTema()}\n` +
-      `Texto: ${palavra.getPosicao().join(' ')}\n` +
+      'Tema: '.menuBlue + `${palavra.getTema()}\n`.cyan +
+      'Texto: '.menuBlue + `${palavra.getPosicao().join(' ')}\n` +
       `${texto ? "\n"+texto : ""}`
     );
   }

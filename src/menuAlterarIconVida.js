@@ -52,14 +52,20 @@ class MenuAlterarIconVida extends Menu {
 
   mudarIcon(num) {
     let text;
-    if (num === 1)
+    let cor = 'reset';
+
+    if (num === 1) {
       text = "Vida";
-    else if (num === 2)
+      cor = 'green';
+    }
+    else if (num === 2) {
       text = "Vida Perdida";
+      cor = 'red';
+    }
 
     // console.clear();
-    console.log(`\nEscolha um Novo Símbolo para ${text}`);
-    const result = prompt('>> ')[0] || " ";
+    console.log(`\nEscolha um Novo Símbolo para ${text}:`[cor]);
+    const result = prompt('>> '.dim)[0] || " ";
     return result;
   }
 }
