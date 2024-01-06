@@ -12,21 +12,24 @@ const { jogador } = require('./config/index');
 class MenuInicial extends Menu {
   async runMenu(msg) {
     this.options(msg);
-    let opt = parseInt(prompt('>> '.dim));
-
-    msg = "";
+    let opt = prompt('>> '.dim);
+    opt = opt === '' ? undefined : parseInt(opt);
 
     switch (opt) {
+      case undefined: break;
+
       case 0:
         msg = 'Saindo do Sistema...'.dim;
         this.options(msg);
         return;
 
       case 1:
+        msg = "";
         await menuJogar.runMenu();
         break;
 
       case 2:
+        msg = "";
         menuConfig.runMenu();
         break;
 

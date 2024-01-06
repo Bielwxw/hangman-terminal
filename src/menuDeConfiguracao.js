@@ -1,21 +1,19 @@
 const prompt = require('prompt-sync')({ sigint: false });
+const colors = require('colors');
 const Menu = require('./menu');
 
 const ClassMenuAlterarIconVida = require('./menuAlterarIconVida');
 const menuAlterVida = new ClassMenuAlterarIconVida();
 
-const { vidaIcon } = require('./config/');
-
 class MenuConfiguracao extends Menu {
   runMenu(msg) {
     this.options(msg);
-    let opt = parseInt(prompt('>> '.dim));
-
-    msg = "";
+    let opt = prompt('>> '.dim);
+    opt = opt === '' ? undefined : parseInt(opt);
 
     switch (opt) {
-      case 0:
-        return;
+      case undefined: break;
+      case 0: return;
 
       case 1:
         break;
@@ -25,17 +23,17 @@ class MenuConfiguracao extends Menu {
         break;
 
       case 3:
-        vidaIcon.toggleHabilitado();
+        colors.enabled ? colors.disable() : colors.enable();
         break;
 
       default:
-        msg = '\nOpção Inválida!!!'.error;
+        msg = 'Opção Inválida!!!'.error;
     }
     this.runMenu(msg);
   }
 
   options(warning) {
-    const vidaText = vidaIcon.getHabilitado() ? 'Desabilitar' : 'Habilitar';
+    const colorEnabled = colors.enabled ? 'Desabilitar' : 'Habilitar';
 
     console.clear();
     console.log(
@@ -43,8 +41,8 @@ class MenuConfiguracao extends Menu {
       'Configurações\n'.menuMagenta +
       '-----------------------------------\n'.menuMagenta +
       '1. Alterar Forca\n' +
-      '2. Alterar os Ícones de Vida\n' +
-      `3. ${vidaText} os Ícones de Vida\n` +
+      '2. Configurar os Ícones de Vida\n' +
+      `3. ${colorEnabled} as Cores no Terminal\n` +
       '-----------------------------------\n'.menuMagenta +
       '0. Voltar\n'.voltar +
       `${warning ? `\n${warning}\n` : ""}`

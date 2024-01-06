@@ -14,10 +14,14 @@ class MenuJogar extends Menu {
     });
 
     this.options(optTemas, msg);
-    let opt = parseInt(prompt('>> '.dim));
+    let opt = prompt('>> '.dim);
+    opt = opt === '' ? undefined : parseInt(opt);
 
-    msg = "";
     if (opt === 0) return;
+    if (opt === undefined) {
+      await this.runMenu(msg);
+      return;
+    }
 
     const temaSelected = Tema.selectTema(opt - 1);
 
