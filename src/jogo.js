@@ -34,6 +34,10 @@ class Jogo {
     return this._niveisDePontuacao;
   }
 
+  delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
   verificarLetraRepetida(letra) {
     if (this.getLetras().includes(letra))
       return true;
@@ -85,11 +89,15 @@ class Jogo {
       this.addLetra(letra);
 
       if (palavra.verificarPalavra()) {
+        this.print();
+        await this.delay(800);
         await fimDeJogo.ganhou();
         this.reset();
         break;
       }
       if (jogador.getVida() <= 0) {
+        this.print();
+        await this.delay(800);
         await fimDeJogo.perdeu();
         jogador.setPontuacao(0);
         this.reset();
