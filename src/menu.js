@@ -1,16 +1,18 @@
 const prompt = require('prompt-sync')({ sigint: false });
 
 class Menu {
-  async runMenu(msg) {
+  runMenu(msg) {
     this.options(msg);
     let opt = parseInt(prompt('>> '));
 
     switch (opt) {
-      case 0: return;
       case 1: break;
       case 2: break;
-      default: this.runMenu();
+      case 0: return;
+      default:
+        msg = '\nOpção Inválida!!!'.error;;
     }
+    this.runMenu(msg);
   }
 
   options(warning) {
