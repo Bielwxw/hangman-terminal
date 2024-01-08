@@ -3,9 +3,11 @@ const prompt = require('prompt-sync')({ sigint: false });
 class Menu {
   runMenu(msg) {
     this.options(msg);
-    let opt = parseInt(prompt('>> '));
+    let opt = prompt('>> '.dim);
+    opt = opt === '' ? undefined : parseInt(opt);
 
     switch (opt) {
+      case undefined: break;
       case 0: return;
       case 1: break;
       case 2: break;
