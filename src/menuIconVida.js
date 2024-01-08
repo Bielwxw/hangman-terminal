@@ -1,9 +1,9 @@
 const prompt = require('prompt-sync')({ sigint: false });
 const Menu = require('./menu');
 
-const { vidaIcon } = require('./config/');
+const { vidaIcon } = require('./config');
 
-class MenuAlterarIconVida extends Menu {
+class MenuIconVida extends Menu {
   runMenu(msg) {
     this.options(msg);
     let opt = prompt('>> '.dim);
@@ -70,4 +70,4 @@ class MenuAlterarIconVida extends Menu {
   }
 }
 
-module.exports = MenuAlterarIconVida;
+module.exports = MenuIconVida;

@@ -2,8 +2,11 @@ const prompt = require('prompt-sync')({ sigint: false });
 const colors = require('colors');
 const Menu = require('./menu');
 
-const ClassMenuAlterarIconVida = require('./menuAlterarIconVida');
-const menuAlterVida = new ClassMenuAlterarIconVida();
+const ClassMenuAlterarForca = require('./menuAlterarForca');
+const menuAlterForca = new ClassMenuAlterarForca();
+
+const ClassMenuIconVida = require('./menuIconVida');
+const menuIconVida = new ClassMenuIconVida();
 
 class MenuConfiguracao extends Menu {
   runMenu(msg) {
@@ -16,10 +19,13 @@ class MenuConfiguracao extends Menu {
       case 0: return;
 
       case 1:
+        msg = "";
+        menuAlterForca.runMenu();
         break;
 
       case 2:
-        menuAlterVida.runMenu();
+        msg = "";
+        menuIconVida.runMenu();
         break;
 
       case 3:
