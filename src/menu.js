@@ -20,9 +20,9 @@ class Menu {
   options(warning) {
     console.log(
       "\n" +
-      "0- Opção 0\n" +
-      "1- Opção 1\n" +
-      "2- Opção 2\n" +
+      "0. Opção 0\n" +
+      "1. Opção 1\n" +
+      "2. Opção 2\n" +
       `${warning ? `\n${warning}\n` : ""}`
     );
   }
