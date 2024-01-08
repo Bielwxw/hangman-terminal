@@ -7,21 +7,26 @@ class FimDeJogo {
     const emote1 =
       "         \n" +
       "    O     \n" +
-      "   /|\\   \n" +
+      " ´ /|\\   \n" +
       "   / \\   \n";
 
     const emote2 =
-      "         \n" +
-      "   \\O/    \n" +
-      "    |     \n" +
-      "   / \\   \n";
+      " ,       \n" +
+      "   \\O/   '\n" +
+      "    |  '  \n" +
+      " ' / \\   \n";
 
     await this.print(emote1, emote2);
   }
 
   async perdeu() {
-    const emote1 = "Perdeu";
-    const emote2 = "Perdeu".error;
+    const emote1 =
+      "    ___\n"+
+      "   /  + \\\n"+
+      "   \\ | /\n"+
+      "    \\_/\n"+
+      "\n";
+    const emote2 = emote1.red;
 
     await this.print(emote1, emote2);
   }
