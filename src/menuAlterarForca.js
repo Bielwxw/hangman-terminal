@@ -6,7 +6,7 @@ const { forca } = require('./config/index');
 class MenuAlterarForcar extends Menu {
   runMenu(msg) {
     this.options(msg);
-    let opt = prompt('>> '.dim);
+    let opt = prompt('>> '.prompt);
     opt = opt === '' ? undefined : parseInt(opt.trim());
 
     switch (opt) {

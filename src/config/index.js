@@ -1,13 +1,14 @@
 const colors = require('colors');
 
 colors.setTheme({
-  voltar: 'yellow',
+  voltar: ['yellow'],
   error: ['red', 'bold'],
   menuBlue: ['blue', 'bold'],
   menuGreen: ['green', 'bold'],
   menuMagenta: ['magenta', 'bold'],
-  vidaPerdida: 'red',
-  vida: 'green'
+  vidaPerdida: ['red'],
+  vida: ['green'],
+  prompt: ['gray']
 });
 
 const pacote = require('../../lib/hangman-package-poo/index');

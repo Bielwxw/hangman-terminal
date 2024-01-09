@@ -6,7 +6,7 @@ const { vidaIcon } = require('./config');
 class MenuIconVida extends Menu {
   runMenu(msg) {
     this.options(msg);
-    let opt = prompt('>> '.dim);
+    let opt = prompt('>> '.prompt);
     opt = opt === '' ? undefined : parseInt(opt.trim());
 
     switch (opt) {
@@ -65,7 +65,7 @@ class MenuIconVida extends Menu {
 
     // console.clear();
     console.log(`\nEscolha um Novo Símbolo para ${text}:`[cor]);
-    const result = prompt('>> '.dim).trim()[0] || " ";
+    const result = prompt('>> '.prompt).trim()[0] || " ";
     return result;
   }
 }

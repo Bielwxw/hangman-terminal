@@ -14,7 +14,7 @@ class MenuJogar extends Menu {
     });
 
     this.options(optTemas, msg);
-    let opt = prompt('>> '.dim);
+    let opt = prompt('>> '.prompt);
     opt = opt === '' ? undefined : parseInt(opt.trim());
 
     if (opt === 0) return;
