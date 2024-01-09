@@ -58,7 +58,7 @@ class Jogo {
 
     while (jogador.getVida() > 0) {
       this.print(text);
-      let letra = prompt('>> '.dim).trim().toUpperCase()[0] ?? "";
+      let letra = prompt('>> '.prompt).trim().toUpperCase()[0] ?? "";
 
       text = "";
 
@@ -91,7 +91,7 @@ class Jogo {
       if (palavra.verificarPalavra()) {
         this.print();
         await this.delay(800);
-        await fimDeJogo.ganhou();
+        await fimDeJogo.venceu();
         this.reset();
         break;
       }

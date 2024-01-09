@@ -3,29 +3,67 @@ class FimDeJogo {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
-  async ganhou() {
-    const emote1 =
-      "         \n" +
-      "    O     \n" +
-      " ´ /|\\   \n" +
-      "   / \\   \n";
+  async venceu() {
+    const c = () => {
+      const cor = ['red', 'yellow', 'blue', 'green'];
+      const confete = ["´", "`", ".", ",", "'", "*", "•", "⁕", "‛", "’", "‘"];
 
-    const emote2 =
-      " ,       \n" +
-      "   \\O/   '\n" +
-      "    |  '  \n" +
-      " ' / \\   \n";
+      const corNum = parseInt(Math.random() * 4);
+      const confNum = parseInt(Math.random() * 11);
+
+      return confete[confNum][cor[corNum]];
+    }
+
+    let emote1 =
+      `   .     .        .     .\n` +
+      `       .    O .      .   \n` +
+      ` .        ./|\\        . \n` +
+      `     .     / \\    .      \n` +
+      `   .    .     .      .   \n` +
+      "░░░░░░░░░░░░░░░░░░░░░░░░░\n" +
+      "░█▀▀░█▀█░█▀█░█░█░█▀█░█░█░\n" +
+      "░█░█░█▀█░█░█░█▀█░█░█░█░█░\n" +
+      "░▀▀▀░▀░▀░▀░▀░▀░▀░▀▀▀░▀▀▀░\n" +
+      "░░░░░░░░░░░░░░░░░░░░░░░░░\n\n\n";
+
+    let emote2 =
+      `     .     .       .    .\n` +
+      `   .     . \\O/   .   .   \n` +
+      `       .    | .      .   \n` +
+      ` .       . / \\  .      . \n` +
+      `    .       .      .     \n` +
+      "░░░░░░░░░░░░░░░░░░░░░░░░░\n" +
+      "░█▀▀░█▀█░█▀█░█░█░█▀█░█░█░\n" +
+      "░█░█░█▀█░█░█░█▀█░█░█░█░█░\n" +
+      "░▀▀▀░▀░▀░▀░▀░▀░▀░▀▀▀░▀▀▀░\n" +
+      "░░░░░░░░░░░░░░░░░░░░░░░░░\n\n\n";
+
+      emote1 = emote1.replace(/\./g, c)
+        .replace(/░/g, "░".yellow);
+
+      emote2 = emote2.replace(/\./g, c)
+        .replace(/█/g, "█".yellow)
+        .replace(/▀/g, "▀".yellow);
 
     await this.print(emote1, emote2);
   }
 
   async perdeu() {
     const emote1 =
-      "    ___\n"+
-      "   /  + \\\n"+
-      "   \\ | /\n"+
-      "    \\_/\n"+
-      "\n";
+      "          +-----------+\n" +
+      "          |    ___    |\n" +
+      "          |   / + \\   |\n" +
+      "          |   \\ | /   |\n" +
+      "          |    \\_/    |\n" +
+      "          |           |\n" +
+      "          +-----------+\n" +
+      "\n" +
+      " ____              _\n" +
+      "|  _ \\ ___ _ __ __| | ___ _   _\n" +
+      "| |_) / _ \\ '__/ _` |/ _ \\ | | |\n" +
+      "|  __/  __/ | | (_| |  __/ |_| |\n" +
+      "|_|   \\___|_|  \\__,_|\\___|\\__,_|\n\n\n"
+      ;
     const emote2 = emote1.red;
 
     await this.print(emote1, emote2);
