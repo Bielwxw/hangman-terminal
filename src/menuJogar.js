@@ -15,7 +15,7 @@ class MenuJogar extends Menu {
 
     this.options(optTemas, msg);
     let opt = prompt('>> '.dim);
-    opt = opt === '' ? undefined : parseInt(opt);
+    opt = opt === '' ? undefined : parseInt(opt.trim());
 
     if (opt === 0) return;
     if (opt === undefined) {

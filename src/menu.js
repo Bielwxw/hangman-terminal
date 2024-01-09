@@ -4,7 +4,7 @@ class Menu {
   runMenu(msg) {
     this.options(msg);
     let opt = prompt('>> '.dim);
-    opt = opt === '' ? undefined : parseInt(opt);
+    opt = opt === '' ? undefined : parseInt(opt.trim());
 
     switch (opt) {
       case undefined: break;

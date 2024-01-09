@@ -7,7 +7,7 @@ class MenuIconVida extends Menu {
   runMenu(msg) {
     this.options(msg);
     let opt = prompt('>> '.dim);
-    opt = opt === '' ? undefined : parseInt(opt);
+    opt = opt === '' ? undefined : parseInt(opt.trim());
 
     switch (opt) {
       case undefined: break;
@@ -65,7 +65,7 @@ class MenuIconVida extends Menu {
 
     // console.clear();
     console.log(`\nEscolha um Novo Símbolo para ${text}:`[cor]);
-    const result = prompt('>> '.dim)[0] || " ";
+    const result = prompt('>> '.dim).trim()[0] || " ";
     return result;
   }
 }
