@@ -6,10 +6,10 @@ class FimDeJogo {
   async venceu() {
     const c = () => {
       const cor = ['red', 'yellow', 'blue', 'green'];
-      const confete = ["´", "`", ".", ",", "'", "*", "•", "⁕", "‛", "’", "‘"];
+      const confete = ["´", "`", ".", ",", "'", "*", "•", "‛", "’", "‘"];
 
       const corNum = parseInt(Math.random() * 4);
-      const confNum = parseInt(Math.random() * 11);
+      const confNum = parseInt(Math.random() * 10);
 
       return confete[confNum][cor[corNum]];
     }
