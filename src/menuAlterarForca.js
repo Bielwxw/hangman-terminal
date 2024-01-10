@@ -32,6 +32,7 @@ class MenuAlterarForcar extends Menu {
   options(warning) {
     forca.setEstado(6);
 
+    console.clear();
     console.log(
       '\n' +
       'Alterar Skin da Forca\n'.menuMagenta +
