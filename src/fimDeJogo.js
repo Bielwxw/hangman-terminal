@@ -8,8 +8,8 @@ class FimDeJogo {
       const cor = ['red', 'yellow', 'blue', 'green'];
       const confete = ["´", "`", ".", ",", "'", "*", "•", "‛", "’", "‘"];
 
-      const corNum = parseInt(Math.random() * 4);
-      const confNum = parseInt(Math.random() * 10);
+      const corNum = parseInt(Math.random() * cor.length);
+      const confNum = parseInt(Math.random() * confete.length);
 
       return confete[confNum][cor[corNum]];
     }
