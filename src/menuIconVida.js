@@ -28,7 +28,7 @@ class MenuIconVida extends Menu {
         break;
 
       default:
-        msg = 'Opção Inválida!!!'.error;;
+        msg = 'Opção Inválida!!!'.error;
     }
     this.runMenu(msg);
   }

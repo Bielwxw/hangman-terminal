@@ -1,4 +1,4 @@
-const prompt = require('prompt-sync')({sigint: false});
+const prompt = require('prompt-sync')({ sigint: false });
 const Menu = require('./menu');
 
 const { forca } = require('./config/index');

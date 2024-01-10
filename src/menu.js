@@ -12,7 +12,7 @@ class Menu {
       case 1: break;
       case 2: break;
       default:
-        msg = 'Opção Inválida!!!'.error;;
+        msg = 'Opção Inválida!!!'.error;
     }
     this.runMenu(msg);
   }

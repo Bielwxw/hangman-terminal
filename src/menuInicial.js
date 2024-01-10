@@ -47,7 +47,7 @@ class MenuInicial extends Menu {
     else if (jogador.getMaiorPontuacao() >= jogador.getPontuacao()) {
       txtPontuacao = 'Maior Pontuação: '.menuBlue + `${jogador.getMaiorPontuacao()}`.yellow;
       if (jogador.getPontuacao() > 0) {
-        txtPontuacao += '\nPontuação Atual: '.menuBlue + `${jogador.getPontuacao()}`.green
+        txtPontuacao += '\nPontuação Atual: '.menuBlue + `${jogador.getPontuacao()}`.green;
       }
     }
 
