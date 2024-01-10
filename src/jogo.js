@@ -12,6 +12,26 @@ class Jogo {
     this._letras = [];
     this._vidaPadrao = 6;
     this._niveisDePontuacao = [40, 35, 30, 15, 10, 5, 0];
+    this._frasesBoas = [
+      'Uau!', 'Boa!', 'É Isso Ae!',
+      'Excelente! Você acertou uma letra!',
+      'E não é que funcionou!?', 'Parabéns!',
+      'Sabe Muito', 'Brabo demais', 'Correto!',
+      'Muito bem! Você está no caminho certo.',
+      'Certíssimo!', 'Maravilhoso!', 'Fantástico!!!'
+    ].map(frase => frase.green);
+
+    this._frasesRuins = [
+      'Não foi dessa vez...', ':(', 'Sabe de nada inocente',
+      'Oxe?', 'Kaboom', 'Talvez a próxima vez seja melhor',
+      'Ops', 'Tente novamente, essa letra não está correta.',
+      'Não, essa não é a letra que você está procurando...',
+      'Erro! Essa letra não faz parte da palavra escolhida.',
+      'Essa letra não faz parte da palavra secreta.',
+      'Essa letra não está na palavra, tente outra.',
+      'Infelizmente, você errou a letra desta vez.',
+      'Você está quase lá!', 'Continue tentando'
+    ].map(frase => frase.red);
   }
 
   getLetras() {
@@ -32,6 +52,14 @@ class Jogo {
 
   getNiveisDePontuacao() {
     return this._niveisDePontuacao;
+  }
+
+  getRandomFraseBoa() {
+    return this._frasesBoas[parseInt(Math.random() * this._frasesBoas.length)];
+  }
+
+  getRandomFraseRuim() {
+    return this._frasesRuins[parseInt(Math.random() * this._frasesRuins.length)];
   }
 
   delay(ms) {
@@ -60,17 +88,15 @@ class Jogo {
       this.print(text);
       let letra = prompt('>> '.prompt).trim().toUpperCase()[0] ?? "";
 
+      if (letra === "") continue;
       text = "";
 
-      if (letra === "") continue;
-
       if (letra === "-") {
-        text = "Hífens já são Colocados Automaticamente!".error;
+        text = "Hífens já são Colocados Automaticamente!".yellow;
         continue;
       }
 
-      const value = this.verificarLetraRepetida(letra);
-      if (value) {
+      if (this.verificarLetraRepetida(letra)) {
         text = "A Letra ".error + `{${letra}}`.green + " já foi Utilizada!".error;
         continue;
       }
@@ -79,11 +105,13 @@ class Jogo {
         palavra.addLetra(letra);
         const p = this.getNiveisDePontuacao()[forca.getEstado()];
         jogador.addPontuacao(p);
+        text = this.getRandomFraseBoa();
       }
       else {
         const dano = jogador.getVida() - 1;
         jogador.setVida(dano);
         forca.setEstado(this.getVidaPadrao() - jogador.getVida());
+        text = this.getRandomFraseRuim();
       }
 
       this.addLetra(letra);
@@ -132,7 +160,7 @@ class Jogo {
       `${vidaStr ? vidaStr : ""}\n` +
       'Tema: '.menuBlue + `${palavra.getTema()}\n`.cyan +
       'Texto: '.menuBlue + `${palavra.getPosicao().join(' ')}\n` +
-      `${texto ? "\n"+texto : ""}`
+      `${texto ? texto+"\n" : ""}`
     );
   }
 }
