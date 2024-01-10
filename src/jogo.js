@@ -50,9 +50,9 @@ class Jogo {
     forca.setEstado(0);
   }
 
-  async run(tema) {
+  async run(temaObj) {
     jogador.setVida(6);
-    palavra.novaPalavra(tema);
+    palavra.novaPalavra(temaObj);
 
     let text = "";
 
